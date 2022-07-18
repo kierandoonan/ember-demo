@@ -1,8 +1,9 @@
-import './App.css';
-import useTrip from './api/useTrip';
+import './App.css'
+import useTrip from './api/useTrip'
+import React from 'react'
 
-function App() {
-  let { trip, error } = useTrip("hybD6XS9GbdvFuH5PyXdmv")
+function App () {
+  const { trip, error } = useTrip('hybD6XS9GbdvFuH5PyXdmv')
 
   console.log(trip)
   console.log(error)
@@ -10,7 +11,7 @@ function App() {
     <div className="App">
       :)
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
