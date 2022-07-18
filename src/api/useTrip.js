@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 export default function useTrip (tripId) {
   const [error, setError] = useState(null)
+  const [loaded, setLoaded] = useState(false)
   const [trip, setTrip] = useState({})
 
   useEffect(() => {
@@ -11,7 +12,8 @@ export default function useTrip (tripId) {
         res => setTrip(res),
         err => setError(err)
       )
+      .then(() => setLoaded(true))
   }, [tripId])
 
-  return { trip, error }
+  return { trip, loaded, error }
 }

@@ -1,0 +1,21 @@
+.route {
+  list-style-type: none;
+}
+
+.stop::before {
+  content: "\200B";
+  border-radius: 50%;
+  height: 5px;
+  width: 5px;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.stop.grey::before {
+  border: 5px solid grey;
+}
+
+.stop.green::before {
+  border: 5px solid green;
+}
