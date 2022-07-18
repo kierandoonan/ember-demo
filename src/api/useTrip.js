@@ -6,6 +6,10 @@ export default function useTrip (tripId) {
   const [trip, setTrip] = useState({})
 
   useEffect(() => {
+    if (!tripId) {
+      return
+    }
+
     fetch(`https://api.ember.to/v1/trips/${tripId}/`)
       .then(res => res.json())
       .then(

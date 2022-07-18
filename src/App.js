@@ -5,7 +5,13 @@ import useTrip from './api/useTrip'
 import Route from './components/Route'
 
 function App () {
-  const { trip, loaded, error } = useTrip('hybD6XS9GbdvFuH5PyXdmv')
+  const tripId = window.location.pathname.replace(/\//g, '')
+
+  const { trip, loaded, error } = useTrip(tripId)
+
+  if (!tripId) {
+    return <div className="App">No trip id given.</div>
+  }
 
   if (!loaded) {
     return <div className="App">Loading...</div>
