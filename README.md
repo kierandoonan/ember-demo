@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Trip Page App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a basic version of a trip page view. I've tried to keep things simple by using `create-react-app` and avoiding any additional `babel` or `webpack` config. I don't think the added complexity would be useful for this demo.
 
-## Available Scripts
+There are some are some parts which I have decided to omit in the interest of time.
+- The loading and error pages are missing. I decided to just focus on the main page.
+- There are no tests. Testing frontend components is tricky. Unit tests could be useful in some components (e.g. testing the time picking logic in the Route component) but ideally user journeys would be more useful. I've used [Cypress](https://www.cypress.io/) in the past to moderate success but it's hard to pick up visual problems automatically. Backend services are a lot easier to test and most of the time I'll start with tests, e.g. if I was adding a new feature to a REST API I would start with a test that I think will match an expected request.
+- The page doesn't automatically refresh data. It could do this by querying the API on some interval.
+- Nothing links to anywhere. Even the header links don't go anywhere, it didn't seem useful for this exercise.
+- The page is somewhat reactive, decreasing the screen width causes the elements to fit the page but I haven't went all the way with it. Right now, any screen under 450px wide will have some horizontal scrolling, that's a case I'd like to fix in a production version. Likewise, if there are stops with excessively long names the styling won't be great (something that will have to be fixed if there is ever a service to a certain Welsh town).
 
-In the project directory, you can run:
+## Assumptions
 
-### `npm start`
+I've made some assumptions about the data recieved from the trips API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Either `route[].skipped` or `route[].departure.actual` is set when a stop has been visited.
+- `route[].arrival.scheduled` always exists.
+- The times in `route[].departure` and `route[].departure` are UTC (they look to be ISO format dates with `+00:00`) and must be converted into the stops local time.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+Run locally:
+```sh
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Now visiting `http://localhost:3000/<trip id>` will show you details about that trip.
