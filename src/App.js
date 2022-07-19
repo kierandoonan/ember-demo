@@ -41,6 +41,7 @@ function App () {
           startRegion={trip.route[0].location.region_name}
           endRegion={trip.route[trip.route.length - 1].location.region_name}
           startDate={trip.route[0].departure.scheduled}
+          timeZone={trip.route[0].location.timeZone}
         />
       </div>
       { trip.description.notes_details &&
