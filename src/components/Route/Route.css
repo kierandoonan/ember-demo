@@ -1,5 +1,6 @@
 .route {
   list-style-type: none;
+  width: 450px;
 }
 
 .stop::before {
@@ -9,7 +10,6 @@
   width: 5px;
   display: inline-block;
   margin-right: 5px;
-  vertical-align: middle;
 }
 
 .stop.grey::before {
@@ -19,3 +19,14 @@
 .stop.green::before {
   border: 5px solid green;
 }
+
+.stop {
+  display: flex;
+  margin: 5px;
+}
+
+.stopTime {
+  margin-left: auto;
+}
+
+.stopName {}
