@@ -5,6 +5,8 @@ import useTrip from './api/useTrip'
 import Route from './components/Route'
 import Services from './components/Services'
 
+import logo from './assets/ember-logo.svg'
+
 function App () {
   const tripId = window.location.pathname.replace(/\//g, '')
 
@@ -20,6 +22,17 @@ function App () {
 
   return (
     <div className="App">
+      <div className='header'>
+        <div className='logoContainer'>
+          <img src={logo} className='logo' />
+        </div>
+        <div className='headerNavigation'>
+          <a href='#'>Live Map</a>
+          <a href='#'>FAQ</a>
+          <a href='#'>Contact</a>
+          <a href='#'>Log In</a>
+        </div>
+      </div>
       { trip.description.notes_details &&
           <div className='noteContainer' dangerouslySetInnerHTML={{ __html: trip.description.notes_details.rendered_notes }} />
       }

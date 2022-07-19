@@ -1,5 +1,8 @@
 .App {
   font-family: "Rawline", "Helvetica", "Arial", sans-serif;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .flexContainer {
@@ -17,4 +20,31 @@
   width: 450px;
   padding: 10px;
   height: fit-content;
+}
+
+.header {
+  height: 60px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  justify-content: space-between;
+  display: grid;
+  align-items: center;
+  margin-left: 10px;
+  grid-template-columns: max-content max-content;
+}
+
+.logo {
+  height: 24px;
+  width: 130px;
+  filter: invert(62%) sepia(9%) saturate(2778%) hue-rotate(126deg) brightness(93%) contrast(87%);
+}
+
+.headerNavigation a {
+  color: #30AFA4;
+  text-decoration: none;
+  width: max-content;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0px 24px 0px 0px;
+  cursor: pointer;
 }

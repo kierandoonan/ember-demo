@@ -19,7 +19,7 @@
 }
 
 .stop.green::before {
-  border: 5px solid green;
+  border: 5px solid #30AFA4;
 }
 
 .stop {
