@@ -18,19 +18,23 @@ function App () {
     return <div className="App">Loading...</div>
   }
 
-  console.log(trip)
   return (
     <div className="App">
-      <div className='routeContainer'>
-        <Route stops={trip.route} />
-      </div>
-      <div className='servicesContainer'>
-        <Services
-          hasBicycle={trip.vehicle.bicycle > 0}
-          hasToilet={trip.vehicle.has_toilet}
-          hasWheelchair={trip.vehicle.wheelchair > 0}
-          hasWifi={trip.vehicle.has_wifi}
-        />
+      { trip.description.notes_details &&
+          <div className='noteContainer' dangerouslySetInnerHTML={{ __html: trip.description.notes_details.rendered_notes }} />
+      }
+      <div className='flexContainer'>
+        <div className='routeContainer'>
+          <Route stops={trip.route} />
+        </div>
+        <div className='servicesContainer'>
+          <Services
+            hasBicycle={trip.vehicle.bicycle > 0}
+            hasToilet={trip.vehicle.has_toilet}
+            hasWheelchair={trip.vehicle.wheelchair > 0}
+            hasWifi={trip.vehicle.has_wifi}
+          />
+        </div>
       </div>
     </div>
   )

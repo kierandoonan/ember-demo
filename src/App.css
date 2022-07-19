@@ -1,9 +1,20 @@
 .App {
   font-family: "Rawline", "Helvetica", "Arial", sans-serif;
+}
+
+.flexContainer {
   display: flex;
   flex-wrap: wrap;
 }
 
-.routeContainer, .servicesContainer {
+.routeContainer, .servicesContainer, .noteContainer {
+  margin: 10px;
+}
+
+.noteContainer {
+  border-color: red;
+  border-style: dotted;
+  width: 450px;
   padding: 10px;
+  height: fit-content;
 }
