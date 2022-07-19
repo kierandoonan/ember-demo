@@ -4,6 +4,7 @@ import React from 'react'
 import useTrip from './api/useTrip'
 import Route from './components/Route'
 import Services from './components/Services'
+import RouteName from './components/RouteName'
 
 import logo from './assets/ember-logo.svg'
 
@@ -32,6 +33,14 @@ function App () {
           <a href='#'>Contact</a>
           <a href='#'>Log In</a>
         </div>
+      </div>
+      <div className='routeNameContainer'>
+        <RouteName
+          routeNumber={trip.description.route_number}
+          startRegion={trip.route[0].location.region_name}
+          endRegion={trip.route[trip.route.length - 1].location.region_name}
+          startDate={trip.route[0].departure.scheduled}
+        />
       </div>
       { trip.description.notes_details &&
           <div className='noteContainer' dangerouslySetInnerHTML={{ __html: trip.description.notes_details.rendered_notes }} />

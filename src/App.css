@@ -1,6 +1,6 @@
 .App {
   font-family: "Rawline", "Helvetica", "Arial", sans-serif;
-  max-width: 1200px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -10,14 +10,13 @@
   flex-wrap: wrap;
 }
 
-.routeContainer, .servicesContainer, .noteContainer {
+.routeContainer, .servicesContainer, .noteContainer, .routeNameContainer {
   margin: 10px;
 }
 
 .noteContainer {
   border-color: red;
   border-style: dotted;
-  width: 450px;
   padding: 10px;
   height: fit-content;
 }
