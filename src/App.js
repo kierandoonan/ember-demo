@@ -5,6 +5,7 @@ import useTrip from './api/useTrip'
 import Route from './components/Route'
 import Services from './components/Services'
 import RouteName from './components/RouteName'
+import BookButton from './components/BookButton'
 
 import logo from './assets/ember-logo.svg'
 
@@ -49,13 +50,18 @@ function App () {
         <div className='routeContainer'>
           <Route stops={trip.route} />
         </div>
-        <div className='servicesContainer'>
-          <Services
-            hasBicycle={trip.vehicle.bicycle > 0}
-            hasToilet={trip.vehicle.has_toilet}
-            hasWheelchair={trip.vehicle.wheelchair > 0}
-            hasWifi={trip.vehicle.has_wifi}
-          />
+        <div className='rightSideContainer'>
+          <div className='servicesContainer'>
+            <Services
+              hasBicycle={trip.vehicle.bicycle > 0}
+              hasToilet={trip.vehicle.has_toilet}
+              hasWheelchair={trip.vehicle.wheelchair > 0}
+              hasWifi={trip.vehicle.has_wifi}
+            />
+          </div>
+          <div className='bookButtonContainer'>
+            <BookButton lastStop={trip.route.reverse().find(stop => stop.allow_boarding)} />
+          </div>
         </div>
       </div>
     </div>

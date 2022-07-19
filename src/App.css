@@ -10,7 +10,7 @@
   flex-wrap: wrap;
 }
 
-.routeContainer, .servicesContainer, .noteContainer, .routeNameContainer {
+.routeContainer, .servicesContainer, .noteContainer, .routeNameContainer, .bookButtonContainer {
   margin: 10px;
 }
 
@@ -19,6 +19,20 @@
   border-style: dotted;
   padding: 10px;
   height: fit-content;
+}
+
+.rightSideContainer {
+  display: grid;
+  align-self: flex-end;
+}
+
+.servicesContainer {
+  align-self: flex-start;
+}
+
+.bookButtonContainer {
+  align-self: flex-end;
+  margin-left: 16px;
 }
 
 .header {

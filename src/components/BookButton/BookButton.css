@@ -1,0 +1,24 @@
+.bookButton {
+  height: 48px;
+  text-decoration: none;
+  appearance: none;
+  background-color: #30AFA4;
+  color: white;
+  border: 0px none;
+  cursor: pointer;
+  padding: 16px;
+  border-radius: 6px;
+  margin-right: auto;
+}
+
+.bookButton:hover {
+  background-color: #4dc0b6;
+}
+
+.bookButton:active {
+  background-color: #71dbd2;
+}
+
+.bookButton:disabled {
+  background-color: grey;
+}
