@@ -10,7 +10,8 @@ import BookButton from './components/BookButton'
 import logo from './assets/ember-logo.svg'
 
 function App () {
-  const tripId = window.location.pathname.replace(/\//g, '')
+  const params = new URLSearchParams(location.search)
+  const tripId = params.get('id')
 
   const { trip, loaded } = useTrip(tripId)
 

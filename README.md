@@ -25,4 +25,4 @@ Run locally:
 npm start
 ```
 
-Now visiting `http://localhost:3000/<trip id>` will show you details about that trip.
+Now visiting `http://localhost:3000/?id=<trip id>` will show you details about that trip.
