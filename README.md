@@ -8,6 +8,7 @@ There are some are some parts which I have decided to omit in the interest of ti
 - The page doesn't automatically refresh data. It could do this by querying the API on some interval.
 - Nothing links to anywhere. Even the header links don't go anywhere, it didn't seem useful for this exercise.
 - The page is somewhat reactive, decreasing the screen width causes the elements to fit the page but I haven't went all the way with it. Right now, any screen under 450px wide will have some horizontal scrolling, that's a case I'd like to fix in a production version. Likewise, if there are stops with excessively long names the styling won't be great (something that will have to be fixed if there is ever a service to a certain Welsh town).
+- There is no CI for testing / deployment. I've deployed manually to S3 but in a real scenario I'd handle that with CI.
 
 ## Assumptions
 
